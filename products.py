@@ -29,14 +29,14 @@ class Product:
 
 
     def show(self):
-        print(f"{self.name}, Price: {self.price}, Quantitiy: {self.quantity}")
+        return (f"{self.name}, Price: {self.price}, Quantitiy: {self.quantity}")
 
 
     def buy(self, quantity:float) -> float:
         if quantity > self.quantity:
             raise ValueError(
                 f"Only {self.quantity} left."
-                f" You can pick only {quantity - self.quantity} units."
+                f" You need to pick {quantity - self.quantity} units less."
                 )
         else:
             self.quantity -= quantity
