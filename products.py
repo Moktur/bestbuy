@@ -33,7 +33,6 @@ class Product:
 
 
     def buy(self, quantity:float) -> float:
-        total_price = quantity * self.price
         if quantity > self.quantity:
             raise ValueError(
                 f"Only {self.quantity} left."
@@ -41,4 +40,5 @@ class Product:
                 )
         else:
             self.quantity -= quantity
+        return quantity * self.price
         # TODO: Nachfrage beim User ob er die mögliche Anzahl an Bestellung machen will.
