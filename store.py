@@ -22,6 +22,7 @@ class Store:
             quantity += item.get_quantity()
         return quantity
 
+
     def get_all_products(self) -> list[Product]:
         active_items = []
         for item in self.list_of_products:
