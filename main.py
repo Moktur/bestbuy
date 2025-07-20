@@ -1,6 +1,18 @@
 from products import Product
 from store import Store
-from constant_variables import STARS, LIST_OF_COLORS_MENU, LIST_OF_FONT_COLORS, RESET
+
+STARS = "☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆\n"
+YELLOW = "\033[103m"
+MAGENTA = "\033[45m"
+CYAN = "\033[106m"
+GREEN = "\033[102m"
+RESET = "\033[0m"
+LIST_OF_COLORS_MENU = [YELLOW, MAGENTA, CYAN, GREEN]
+
+FONT_MAGENTA = "\033[35m"
+FONT_CYAN = "\033[36m"
+FONT_BRIGHT_BLACK = "\x1b[90m"
+LIST_OF_FONT_COLORS = [FONT_MAGENTA, FONT_CYAN, FONT_BRIGHT_BLACK]
 
 
 def print_colored(text, color_code):
