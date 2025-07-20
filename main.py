@@ -1,6 +1,6 @@
 from products import Product
 from store import Store
-from constants import STARS, LIST_OF_COLORS_MENU, LIST_OF_FONT_COLORS, RESET
+from constant_variables import STARS, LIST_OF_COLORS_MENU, LIST_OF_FONT_COLORS, RESET
 
 
 def print_colored(text, color_code):
