@@ -55,4 +55,3 @@ class Product:
         else:
             self.quantity -= quantity
             return quantity * self.price
-        # TODO: Nachfrage beim User ob er die mögliche Anzahl an Bestellung machen will.
