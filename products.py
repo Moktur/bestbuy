@@ -1,4 +1,14 @@
 class Product:
+    """
+    Represents a single product in the store.
+
+    Attributes:
+        name (str): The name of the product.
+        price (float): The price per unit of the product.
+        quantity (int): The current available quantity of the product.
+        active (bool): Indicates whether the product is available for purchase.
+    """
+
     def __init__(self, name, price, quantity, active=True):
         self.name = name
         self.price = price
@@ -6,45 +16,73 @@ class Product:
         self.active = active
         if name == "" or price < 0 or quantity < 0:
             raise ValueError("No negative or empty values allowed")
-     
-     
+
+
     def get_quantity(self) -> int:
-        """returns the quantity of the product"""
+        """
+        Returns the current quantity of the product.
+
+        Returns:
+            int: The available quantity.
+        """
         return self.quantity
 
 
     def set_quantity(self, quantity):
-        """set a new quantity"""
+        """
+        Sets a new quantity for the product.
+
+        Args:
+            quantity (int): The new quantity to be set.
+        """
         self.quantity = quantity
 
 
     def is_active(self) -> bool:
-        """returns a boolean if the product is active or not"""
+        """
+        Indicates whether the product is active.
+
+        Returns:
+            bool: True if the product is active, False otherwise.
+        """
         return self.active
 
 
     def activate(self):
-        """activates the product"""
+        """
+        Sets the product status to active.
+        """
         self.active = True
 
 
     def deactive(self):
-        """deactive the product"""
+        """
+        Sets the product status to inactive.
+        """
         self.active = False
 
 
     def show(self):
         """
-        returns a string of showing the name, 
-        price and quantity of the product
+        Returns a string representation of the product with its name, price, and quantity.
+
+        Returns:
+            str: A formatted product string.
         """
-        return (f"{self.name}, Price: {self.price}, Quantitiy: {self.quantity}")
+        return f"{self.name}, Price: {self.price}, Quantitiy: {self.quantity}"
 
 
     def buy(self, quantity:float) -> float:
         """
-        returns the total price of ordered product and quantity.
-        If the ordered quantity is to high, it will return None
+        Attempts to buy a certain quantity of the product.
+
+        If the requested quantity exceeds available stock, prints an error and returns None.
+
+        Args:
+            quantity (int): The number of units to buy.
+
+        Returns:
+            float | None: The total price if successful, otherwise None.
         """
         if quantity > self.quantity:
             print(
@@ -52,6 +90,5 @@ class Product:
                 f" You need to pick {quantity - self.quantity} unit(s) less."
                 )
             return None
-        else:
-            self.quantity -= quantity
-            return quantity * self.price
+        self.quantity -= quantity
+        return quantity * self.price
