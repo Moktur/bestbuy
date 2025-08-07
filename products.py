@@ -36,6 +36,8 @@ class Product:
             quantity (int): The new quantity to be set.
         """
         self.quantity = quantity
+        if self.quantity == 0:
+            self.deactive()
 
 
     def is_active(self) -> bool:
@@ -69,7 +71,8 @@ class Product:
         Returns:
             str: A formatted product string.
         """
-        return f"{self.name}, Price: {self.price}, Quantitiy: {self.quantity}"
+        if self.is_active():
+            return f"{self.name}, Price: {self.price}, Quantity: {self.quantity}"
 
 
     def buy(self, quantity:float) -> float:
@@ -91,4 +94,6 @@ class Product:
                 )
             return None
         self.quantity -= quantity
+        if self.quantity == 0:
+            self.deactive()
         return quantity * self.price
